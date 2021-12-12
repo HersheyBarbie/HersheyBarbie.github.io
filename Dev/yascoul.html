@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Title</title>
+
+		<link href="css/reset.css" rel="stylesheet" type="text/css" />
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+        <script>
+          function functionAlert(msg, myYes) {
+             var confirmBox = $("confirm");}
+          </script>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+          function functionAlert(msg, myYes) {
+              var confirmBox = $("#confirm1").text(msg);
+              confirmBox.find(".workclose1").unbind().click(function() {
+                 confirmBox.hide();
+              });
+              confirmBox.find(".workclose1").click(myYes);
+              confirmBox.show();}
+          </script>
+
+        <script>
+          function functionAlert1(msg, myYes) {
+              var confirmBox = $("#confirm2").text(msg);
+              confirmBox.find(".workclose2").unbind().click(function() {
+                 confirmBox.hide();
+              });
+              confirmBox.find(".workclose2").click(myYes);
+              confirmBox.show();}
+          </script>
+
+        <script>
+          function functionAlert2(msg, myYes) {
+              var confirmBox = $("#confirm3").text(msg);
+              confirmBox.find(".workclose3").unbind().click(function() {
+                 confirmBox.hide();
+              });
+              confirmBox.find(".workclose3").click(myYes);
+              confirmBox.show();}
+          </script>
+	</head>
+
+    <body>
+        <section class="container">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <img class="background" src="./img/background3.gif">
+            
+            <div id="confirm1">
+
+              <div id="confirm1header"></div>
+              <img class="stack-top1" src="./img/work window.png">
+                <div class="portfolio1" ></div>
+                  <div class="portlabel1">
+                    <p>Fashion</p>
+                  </div>
+                <div class="portfolio2" ></div>
+                  <div class="portlabel2">
+                    <p>3D Work</p>
+                  </div>              
+                <button><img class="workclose1" src="./Buttons/Exit_button.png"></button>
+            </div>            
+           <input class="icon1" type="image" src="./Icons/computer.png" onclick="functionAlert();" />
+                <div class="label1">
+                    <p>My Work</p>
+                </div>
+
+            <div id="confirm2">
+
+              <div id="confirm2header"></div>
+              <img class="stack-top2" src="./img/work window.png">
+
+              <a href="https://instagram.com/hershey.barbie/">
+                <div><img class="ig" src="./Icons/IG.png"></div>
+              </a>
+              <a href="https://snapchat.com/add/sackabaly">
+                <div><img class="snap" src="./Icons/Snap.png"></div>
+              </a>
+              <a href="https://www.facebook.com/yassacramento/">
+                <div><img class="face" src="./Icons/Face.png"></div>
+              </a>
+              <button><img class="workclose2" src="./Buttons/Exit_button.png"></button>
+            </div>
+           <input class="icon2" type="image" src="./Icons/social.png" onclick="functionAlert1();" />
+                <div class="label2">
+                    <p>Social Media</p>
+                </div>
+                
+            <div id="confirm3">
+
+              <div id="confirm3header"></div>
+              <img class="stack-top3" src="./img/work window.png">
+              <button><img class="workclose3" src="./Buttons/Exit_button.png"></button>
+            </div> 
+           <input class="icon3" type="image" src="./Icons/About.png" onclick="functionAlert2();" />
+                <div class="label3">
+                <p>About</p>
+            </div>
+
+            <img class="icon4" src="./Icons/contact.png">
+            <div class="label4">
+                <p>Contact</p>
+            </div>
+        
+        
+          <div id="mydiv">
+            <div class="landingpage">
+              <img class="closelanding" src="./Buttons/Exit_button.png">
+              <div id="mydivheader"></div>
+              <img class="window" src="./img/landing window.png">
+            </div>
+
+          </div>
+
+          <div class="nav-bar">
+            <a href="https://alexmeub.com/old-windows-icons/" title="Start Menu" class="button start-button-wrapper js-start-button" target="_blank">
+              <div><img class="start-button" src="./Buttons/start.png"></div>
+            </a>
+          </div>
+        </section>
+
+        <script>$("#myModal").draggable({
+          handle: ".modal-header"});
+        </script>
+
+        <script>
+            //Make the DIV element draggagle:
+            dragElement(document.getElementById("mydiv"));
+            dragElement(document.getElementById("confirm1"));
+            dragElement(document.getElementById("confirm2"));
+            dragElement(document.getElementById("confirm3"));
+
+            function dragElement(elmnt) {
+              var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+              if (document.getElementById(elmnt.id + "header")) {
+                /* if present, the header is where you move the DIV from:*/
+                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+              } else {
+                /* otherwise, move the DIV from anywhere inside the DIV:*/
+                elmnt.onmousedown = dragMouseDown;
+              }
+            
+              function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+              }
+            
+              function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+              }
+            
+              function closeDragElement() {
+                /* stop moving when mouse button is released:*/
+                document.onmouseup = null;
+                document.onmousemove = null;
+              }
+            }
+            </script>
+            
+    </body>
